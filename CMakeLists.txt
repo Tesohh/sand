@@ -27,6 +27,9 @@ target_link_libraries(${PROJECT_NAME} raylib)
 
 # Include directories for headers
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src/game)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src/element)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src/grain)
 
 # macOS-specific: Link additional system frameworks required by raylib
 if(APPLE)
