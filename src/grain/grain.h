@@ -10,6 +10,7 @@ typedef enum GrainState {
 typedef struct Grain {
     element_id id;
     uint64_t lifetime;
+    int32_t temperature;
     grain_state state;
 } grain_t;
 

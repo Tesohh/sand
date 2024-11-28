@@ -6,7 +6,11 @@
 
 game_t game_init(void) {
     game_t game = {0};
-    game.grains = malloc(sizeof(grain_t) * SANDBOX_WIDTH * SANDBOX_HEIGHT);
+    game.grains = calloc(SANDBOX_LENGTH, sizeof(grain_t));
+
+    for (int i = 0; i < SANDBOX_WIDTH * SANDBOX_HEIGHT; i++) {
+        (game.grains + i)->id = ELEMENT_TUBRONIUM;
+    }
 
     element_t* elements = element_get_list();
 

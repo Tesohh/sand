@@ -3,14 +3,18 @@
 
 #include "element/element.h"
 #include "grain/grain.h"
+#include <raylib.h>
 #include <stddef.h>
 
-#define SANDBOX_WIDTH 854
-#define SANDBOX_HEIGHT 480
+#define SANDBOX_WIDTH 200
+#define SANDBOX_HEIGHT 150
+#define SANDBOX_LENGTH SANDBOX_WIDTH* SANDBOX_HEIGHT
 
 typedef struct Game {
     grain_t* grains;
     element_t elements[ELEMENTS_LEN]; // yea this is correct, i don't want to include the end
+
+    Camera2D camera;
 } game_t;
 
 // allocates memory for the grains, and populates the elements list
