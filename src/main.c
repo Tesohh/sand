@@ -1,5 +1,6 @@
 #include "element.h"
 #include "game/game.h"
+#include "grain.h"
 #include "raylib.h"
 #include "ui/ui.h"
 #include "utils/utils.h"
@@ -63,9 +64,23 @@ int main(void) {
 
             element_t* element = game_get_element(&game, game.brush.id);
             Rectangle rect = util_rect_from_radius((Vector2){.x = mousePosition.x, .y = mousePosition.y}, game.brush.size / 2.0);
-            // DebugRectangle(rect, "cissy");
 
-            DrawRectangleRec(rect, element->color);
+            for (int x = rect.x; x < rect.x + rect.width; x++) {
+                if (x >= SANDBOX_WIDTH || x < 0)
+                    continue;
+
+                for (int y = rect.y; y < rect.y + rect.height; y++) {
+                    if (y >= SANDBOX_HEIGHT || y < 0)
+                        continue;
+                    grain_t* grain = game_get_grain(&game, x, y);
+                    grain->id = game.brush.id;
+                    grain->state = GRAIN_NORMAL;
+                    grain->lifetime = 0;
+                    grain->temperature = element->nominal_temperature; // FIX:
+                }
+            }
+
+            // DrawRectangleRec(rect, element->color);
         }
 
         EndDrawing();

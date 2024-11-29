@@ -4,7 +4,7 @@
 #include "element/element.h"
 
 typedef enum GrainState {
-    NORMAL,
+    GRAIN_NORMAL,
 } grain_state;
 
 typedef struct Grain {
