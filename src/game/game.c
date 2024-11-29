@@ -6,11 +6,11 @@
 
 game_t game_init(void) {
     game_t game = {0};
-    game.brush = (game_brush_t){.id = ELEMENT_NOTHING, .size = 1};
+    game.brush = (game_brush_t){.id = ELEMENT_TUBRONIUM, .size = 1};
     game.grains = calloc(SANDBOX_LENGTH, sizeof(grain_t));
 
     for (int i = 0; i < SANDBOX_WIDTH * SANDBOX_HEIGHT; i++) {
-        (game.grains + i)->id = ELEMENT_TUBRONIUM;
+        (game.grains + i)->id = ELEMENT_NOTHING;
     }
 
     element_t* elements = element_get_list();

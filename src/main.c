@@ -26,10 +26,21 @@ int main(void) {
         DrawButton((ui_button_t){
             .rect = {0, SANDBOX_HEIGHT, 20, 10},
             .tint = PINK,
+            .text = "tubronium",
+            .text_size = 4.0,
+            .text_tint = WHITE,
+            .state = game.brush.id == ELEMENT_TUBRONIUM ? BUTTON_SELECTED : BUTTON_ENABLED,
+            .fn = game_element_switcheroo_callback,
+            .id = ELEMENT_TUBRONIUM,
+            .game = &game,
+        });
+        DrawButton((ui_button_t){
+            .rect = {20, SANDBOX_HEIGHT, 20, 10},
+            .tint = RED,
             .text = "sloni",
             .text_size = 4.0,
             .text_tint = WHITE,
-            .state = BUTTON_ENABLED,
+            .state = game.brush.id == ELEMENT_SILONIUM ? BUTTON_SELECTED : BUTTON_ENABLED,
             .fn = game_element_switcheroo_callback,
             .id = ELEMENT_SILONIUM,
             .game = &game,

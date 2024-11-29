@@ -12,7 +12,7 @@ void DrawButton(ui_button_t button) {
 
     bool hovered = IsHovered(button.rect, button.game->camera);
 
-    DrawBorderRect(button.rect, 0.1, button.state == BUTTON_SELECTED, button.tint, button.tint);
+    DrawBorderRect(button.rect, 0.2, button.state == BUTTON_SELECTED, button.tint, button.tint);
     DrawCenteredText(button.rect, button.text, button.text_size, button.text_tint);
 
     if (hovered && IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
