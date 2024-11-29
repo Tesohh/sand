@@ -19,11 +19,7 @@ void DrawButton(ui_button_t button) {
         DrawRectangleRec(button.rect, GetColor(0x00000055));
     } else if (hovered && IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) {
         if (button.fn != NULL) {
-            char* id = button.id;
-            if (strlen(button.id) == 0)
-                id = button.text;
-
-            button.fn(button.game, id);
+            button.fn(button.game, button.id);
         }
     } else if (hovered) {
         DrawRectangleRec(button.rect, GetColor(0xFFFFFF55));

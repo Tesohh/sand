@@ -6,16 +6,17 @@
 
 typedef enum ElementID { ELEMENT_NOTHING,
                          ELEMENT_TUBRONIUM,
+                         ELEMENT_SILONIUM,
                          ELEMENT_END } element_id;
 
-#define ELEMENTS_LEN 2
+#define ELEMENTS_LEN 3
 
 typedef struct Element {
     // chemical properties
-    uint64_t halflife;    // ticks (0 = never decay)
-    int64_t solid_point;  // kelvin
-    int64_t liquid_point; // kelvin
-    int64_t gas_point;    // kelvin
+    uint64_t halflife;     // ticks (0 = never decay)
+    uint64_t solid_point;  // kelvin
+    uint64_t liquid_point; // kelvin
+    uint64_t gas_point;    // kelvin
 
     // physical properties
     int64_t gravity; // px / tick (0 = static)

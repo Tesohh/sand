@@ -3,6 +3,8 @@
 
 #include "game/game.h"
 #include <raylib.h>
+#include <stddef.h>
+
 typedef enum UIButtonState {
     BUTTON_ENABLED,
     BUTTON_DISABLED,
@@ -12,12 +14,12 @@ typedef enum UIButtonState {
 typedef struct UIButton {
     Rectangle rect;
     char* text;
-    char* id;
+    size_t id;
     Color tint;
     Color text_tint;
     float text_size;
     ui_button_state state;
-    void (*fn)(game_t*, char*); // fns will be called with the global game and the id of the button (if it's empty it will pass the name)
+    void (*fn)(game_t*, size_t); // fns will be called with the global game and the id of the button (if it's empty it will pass the name)
     game_t* game;
 } ui_button_t;
 

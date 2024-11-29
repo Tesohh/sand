@@ -8,6 +8,7 @@ element_t* element_get_list(void) {
 
     elements[ELEMENT_NOTHING] = (element_t){.halflife = 0, .gravity = 0};
     elements[ELEMENT_TUBRONIUM] = (element_t){.halflife = 100, .gravity = 10, .color = {255, 128, 255, 255}};
+    elements[ELEMENT_SILONIUM] = (element_t){.halflife = 100, .gravity = 10, .color = {255, 0, 0, 255}};
 
     return elements;
 }

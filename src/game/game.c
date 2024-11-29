@@ -6,6 +6,7 @@
 
 game_t game_init(void) {
     game_t game = {0};
+    game.brush = (game_brush_t){.id = ELEMENT_NOTHING, .size = 1};
     game.grains = calloc(SANDBOX_LENGTH, sizeof(grain_t));
 
     for (int i = 0; i < SANDBOX_WIDTH * SANDBOX_HEIGHT; i++) {
@@ -33,4 +34,8 @@ grain_t* game_get_grain(game_t* game, size_t x, size_t y) {
     if (y >= SANDBOX_HEIGHT)
         return NULL;
     return game->grains + ((y * SANDBOX_WIDTH) + x);
+}
+
+element_t* game_get_element(game_t* game, element_id id) {
+    return game->elements + id;
 }
